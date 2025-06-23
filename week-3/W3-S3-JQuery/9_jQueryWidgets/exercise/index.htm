@@ -36,6 +36,10 @@
         .autocomplete {
             margin-bottom: 20px;
         }
+
+        .no-close .ui-dialog-titlebar-close {
+            display: none;
+        }
     </style>
 </head>
 
@@ -54,6 +58,13 @@
     <!-- Autocomplete Input -->
     <p>Start typing a fruit: <input type="text" id="autocomplete" class="autocomplete"></p>
 
+
+    <div id="dialog">
+        <p>
+            WELCOME TO OUR DIALOG WIDGET
+        </p>
+    </div>
+
     <script>
         $(document).ready(function () {
             // Draggable widget
@@ -71,6 +82,25 @@
                 source: availableFruits
             });
         });
+
+        //Dialogue Widget//
+        $("#dialog").dialog({
+            dialogClass: "no-close",
+            buttons: [
+                {
+                    text: "OK",
+                    click: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            ]
+        });
+
+        $(".selector").slider({
+            animate: "fast"
+        });
+
+
     </script>
 
 </body>
